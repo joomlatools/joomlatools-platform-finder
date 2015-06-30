@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.0.0" method="upgrade">
+	<name>com_finder</name>
+	<author>Joomlatools</author>
+	<copyright>(C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
+    <copyright>(C) 2015 Timble CVBA (http://www.timble.net)</copyright>
+    <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
+	<creationDate>August 2011</creationDate>
+    <authorEmail>info@joomlatools.com</authorEmail>
+    <authorUrl>www.joomlatools.com</authorUrl>
+	<version>1.0.0</version>
+	<description>COM_FINDER_XML_DESCRIPTION</description>
+	<menu link="option=com_finder">COM_FINDER</menu>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">resources/install/install.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">resources/install/uninstall.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="../../../site/components/com_finder">
+        <filename>controller.php</filename>
+        <filename>finder.php</filename>
+        <filename>router.php</filename>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>language</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+
+    <media folder="../../../media">
+        <folder>com_finder</folder>
+    </media>
+
+	<languages folder="../../../site/components/com_finder">
+		<language tag="en-GB">language/en-GB.com_finder.ini</language>
+	</languages>
+
+    <administration>
+
+        <menu img="class:finder" link="option=com_finder">COM_FINDER</menu>
+
+		<files folder="./../../administrator/components/com_finder">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>finder.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+            <folder>language</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+
+		<languages folder="./../../administrator/components/com_finder">
+			<language tag="en-GB">language/en-GB.com_finder.ini</language>
+			<language tag="en-GB">language/en-GB.com_finder.sys.ini</language>
+		</languages>
+
+    </administration>
+</extension>
