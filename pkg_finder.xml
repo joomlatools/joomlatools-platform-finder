@@ -14,7 +14,7 @@
 
     <files>
         <file type="component" id="com_finder">administrator/components</file>
-        <file type="module" id="mod_finder">site/modules</file>
+        <file type="module" id="mod_finder" client="site">site/modules</file>
         <file type="plugin" id="finder" group="content">plugins/content/finder</file>
     </files>
 </extension>
