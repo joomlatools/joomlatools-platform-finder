@@ -1,4 +1,4 @@
-# Joomla Finder Component
+# Joomla Finder Extension
 
 ## What is Joomla Finder?
 

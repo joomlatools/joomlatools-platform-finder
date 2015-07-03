@@ -3,11 +3,7 @@
   "type": "joomla-installer",
   "license": "GPLv3",
   "description": "Smart search extension for the Joomlatools Platform",
-  "keywords": [
-    "joomla",
-    "extension",
-    "platform"
-  ],
+  "keywords": ["joomla", "extension", "platform"],
   "homepage": "https://github.com/joomlatools/joomla-platform-finder",
   "authors": [
     {

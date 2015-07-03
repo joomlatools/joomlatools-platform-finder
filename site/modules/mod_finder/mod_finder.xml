@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="1.0.0" client="site" method="upgrade">
 	<name>mod_finder</name>
-	<author>Joomla! Project</author>
+	<author>Joomlatools</author>
 	<creationDate>August 2011</creationDate>
 	<copyright>(C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
     <copyright>(C) 2015 Timble CVBA (http://www.timble.net)</copyright>

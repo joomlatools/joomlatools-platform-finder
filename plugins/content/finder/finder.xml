@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="1.0.0" type="plugin" group="content">
 	<name>plg_content_finder</name>
-	<author>Joomla! Project</author>
+	<author>Joomlatools</author>
 	<creationDate>December 2011</creationDate>
 	<copyright>Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
     <copyright>(C) 2015 Timble CVBA (http://www.timble.net)</copyright>
@@ -21,8 +21,4 @@
 		<language tag="en-GB">language/en-GB.plg_content_finder.sys.ini</language>
 	</languages>
 
-	<config>
-		<fields name="params">
-		</fields>
-	</config>
 </extension>
