@@ -16,9 +16,4 @@
         <folder>language</folder>
 	</files>
 
-    <languages folder="../../../plugins/content/finder">
-		<language tag="en-GB">language/en-GB.plg_content_finder.ini</language>
-		<language tag="en-GB">language/en-GB.plg_content_finder.sys.ini</language>
-	</languages>
-
 </extension>

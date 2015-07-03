@@ -13,15 +13,11 @@
 
     <files>
 		<folder>tmpl</folder>
+        <folder>language</folder>
 		<filename module="mod_finder">mod_finder.php</filename>
 		<filename>helper.php</filename>
 		<filename>mod_finder.xml</filename>
 	</files>
-
-    <languages folder="../../../site/modules/mod_finder">
-		<language tag="en-GB">language/en-GB.mod_finder.ini</language>
-		<language tag="en-GB">language/en-GB.mod_finder.sys.ini</language>
-	</languages>
 
     <config>
 		<fields name="params" addfieldpath="/administrator/components/com_finder/models/fields">

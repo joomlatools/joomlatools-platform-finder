@@ -17,11 +17,18 @@
             <file driver="mysql" charset="utf8">resources/install/install.mysql.sql</file>
         </sql>
     </install>
+
     <uninstall>
         <sql>
             <file driver="mysql" charset="utf8">resources/install/uninstall.mysql.sql</file>
         </sql>
     </uninstall>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">resources/updates</schemapath>
+        </schemas>
+    </update>
 
     <files folder="../../../site/components/com_finder">
         <filename>controller.php</filename>
@@ -37,10 +44,6 @@
     <media folder="../../../media">
         <folder>com_finder</folder>
     </media>
-
-	<languages folder="../../../site/components/com_finder">
-		<language tag="en-GB">language/en-GB.com_finder.ini</language>
-	</languages>
 
     <administration>
 
@@ -59,11 +62,6 @@
 			<folder>tables</folder>
 			<folder>views</folder>
 		</files>
-
-		<languages folder="./../../administrator/components/com_finder">
-			<language tag="en-GB">language/en-GB.com_finder.ini</language>
-			<language tag="en-GB">language/en-GB.com_finder.sys.ini</language>
-		</languages>
 
     </administration>
 </extension>
