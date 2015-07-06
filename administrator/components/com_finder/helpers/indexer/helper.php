@@ -492,7 +492,7 @@ class FinderIndexerHelper
 		}
 
 		// Create a mock content object.
-		$content = JTable::getInstance('Content');
+		$content = JTable::getInstance('Content', 'ContentTable');
 		$content->text = $text;
 
 		// Fire the onContentPrepare event.
