@@ -24,12 +24,6 @@
         </sql>
     </uninstall>
 
-    <update>
-        <schemas>
-            <schemapath type="mysql">resources/updates</schemapath>
-        </schemas>
-    </update>
-
     <files folder="../../../site/components/com_finder">
         <filename>controller.php</filename>
         <filename>finder.php</filename>
