@@ -1,8 +1,8 @@
 --
--- Table structure for table `#__finder_filters`
+-- Table structure for table `finder_filters`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_filters` (
+CREATE TABLE IF NOT EXISTS `finder_filters` (
   `filter_id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_filters` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links`
+-- Table structure for table `finder_links`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links` (
+CREATE TABLE IF NOT EXISTS `finder_links` (
   `link_id` int(10) unsigned NOT NULL auto_increment,
   `url` varchar(255) NOT NULL,
   `route` varchar(255) NOT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms0`
+-- Table structure for table `finder_links_terms0`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms0` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms0` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -73,10 +73,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms0` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms1`
+-- Table structure for table `finder_links_terms1`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms1` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms1` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -88,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms1` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms2`
+-- Table structure for table `finder_links_terms2`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms2` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms2` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -103,10 +103,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms2` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms3`
+-- Table structure for table `finder_links_terms3`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms3` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms3` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -119,10 +119,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms3` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms4`
+-- Table structure for table `finder_links_terms4`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms4` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms4` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -134,10 +134,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms4` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms5`
+-- Table structure for table `finder_links_terms5`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms5` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms5` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -149,10 +149,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms5` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms6`
+-- Table structure for table `finder_links_terms6`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms6` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms6` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -164,10 +164,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms6` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms7`
+-- Table structure for table `finder_links_terms7`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms7` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms7` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -179,10 +179,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms7` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms8`
+-- Table structure for table `finder_links_terms8`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms8` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms8` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -194,10 +194,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms8` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_terms9`
+-- Table structure for table `finder_links_terms9`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_terms9` (
+CREATE TABLE IF NOT EXISTS `finder_links_terms9` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -209,10 +209,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms9` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termsa`
+-- Table structure for table `finder_links_termsa`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termsa` (
+CREATE TABLE IF NOT EXISTS `finder_links_termsa` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -224,10 +224,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termsb`
+-- Table structure for table `finder_links_termsb`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termsb` (
+CREATE TABLE IF NOT EXISTS `finder_links_termsb` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -239,10 +239,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsb` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termsc`
+-- Table structure for table `finder_links_termsc`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termsc` (
+CREATE TABLE IF NOT EXISTS `finder_links_termsc` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -254,10 +254,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsc` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termsd`
+-- Table structure for table `finder_links_termsd`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termsd` (
+CREATE TABLE IF NOT EXISTS `finder_links_termsd` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -269,10 +269,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsd` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termse`
+-- Table structure for table `finder_links_termse`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termse` (
+CREATE TABLE IF NOT EXISTS `finder_links_termse` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -284,10 +284,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termse` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_links_termsf`
+-- Table structure for table `finder_links_termsf`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_links_termsf` (
+CREATE TABLE IF NOT EXISTS `finder_links_termsf` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
   `weight` float unsigned NOT NULL,
@@ -299,10 +299,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsf` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_taxonomy`
+-- Table structure for table `finder_taxonomy`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_taxonomy` (
+CREATE TABLE IF NOT EXISTS `finder_taxonomy` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `parent_id` int(10) unsigned NOT NULL default '0',
   `title` varchar(255) NOT NULL,
@@ -318,19 +318,19 @@ CREATE TABLE IF NOT EXISTS `#__finder_taxonomy` (
 ) DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `#__finder_taxonomy`
+-- Dumping data for table `finder_taxonomy`
 --
 
-REPLACE INTO `#__finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
+REPLACE INTO `finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
 (1, 0, 'ROOT', 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_taxonomy_map`
+-- Table structure for table `finder_taxonomy_map`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_taxonomy_map` (
+CREATE TABLE IF NOT EXISTS `finder_taxonomy_map` (
   `link_id` int(10) unsigned NOT NULL,
   `node_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`link_id`,`node_id`),
@@ -341,10 +341,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_taxonomy_map` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_terms`
+-- Table structure for table `finder_terms`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_terms` (
+CREATE TABLE IF NOT EXISTS `finder_terms` (
   `term_id` int(10) unsigned NOT NULL auto_increment,
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
@@ -363,10 +363,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_terms` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_terms_common`
+-- Table structure for table `finder_terms_common`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_terms_common` (
+CREATE TABLE IF NOT EXISTS `finder_terms_common` (
   `term` varchar(75) NOT NULL,
   `language` varchar(3) NOT NULL,
   KEY `idx_word_lang` (`term`,`language`),
@@ -374,10 +374,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_terms_common` (
 ) DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `#__finder_terms_common`
+-- Dumping data for table `finder_terms_common`
 --
 
-REPLACE INTO `#__finder_terms_common` (`term`, `language`) VALUES
+REPLACE INTO `finder_terms_common` (`term`, `language`) VALUES
 ('a', 'en'),
 ('about', 'en'),
 ('after', 'en'),
@@ -497,10 +497,10 @@ REPLACE INTO `#__finder_terms_common` (`term`, `language`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_tokens`
+-- Table structure for table `finder_tokens`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_tokens` (
+CREATE TABLE IF NOT EXISTS `finder_tokens` (
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
   `common` tinyint(1) unsigned NOT NULL default '0',
@@ -514,10 +514,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_tokens_aggregate`
+-- Table structure for table `finder_tokens_aggregate`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_tokens_aggregate` (
+CREATE TABLE IF NOT EXISTS `finder_tokens_aggregate` (
   `term_id` int(10) unsigned NOT NULL,
   `map_suffix` char(1) NOT NULL,
   `term` varchar(75) NOT NULL,
@@ -535,10 +535,10 @@ CREATE TABLE IF NOT EXISTS `#__finder_tokens_aggregate` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__finder_types`
+-- Table structure for table `finder_types`
 --
 
-CREATE TABLE IF NOT EXISTS `#__finder_types` (
+CREATE TABLE IF NOT EXISTS `finder_types` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(100) NOT NULL,
   `mime` varchar(100) NOT NULL,
