@@ -6,3 +6,5 @@
  * @license		GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
  * @link		https://github.com/joomlatools/joomla-platform for the canonical source repository
  */
+
+JHtml::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_finder/helpers/html');
