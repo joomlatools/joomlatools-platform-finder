@@ -353,6 +353,7 @@ CREATE TABLE IF NOT EXISTS `finder_terms` (
   `weight` float unsigned NOT NULL default '0',
   `soundex` varchar(75) NOT NULL,
   `links` int(10) NOT NULL default '0',
+  `language` varchar(3) NOT NULL,
   PRIMARY KEY  (`term_id`),
   UNIQUE KEY `idx_term` (`term`),
   KEY `idx_term_phrase` (`term`,`phrase`),
@@ -507,6 +508,7 @@ CREATE TABLE IF NOT EXISTS `finder_tokens` (
   `phrase` tinyint(1) unsigned NOT NULL default '0',
   `weight` float unsigned NOT NULL default '1',
   `context` tinyint(1) unsigned NOT NULL default '2',
+  `language` char(3) NOT NULL DEFAULT '',
   KEY `idx_word` (`term`),
   KEY `idx_context` (`context`)
 ) DEFAULT CHARSET=utf8;
@@ -528,6 +530,7 @@ CREATE TABLE IF NOT EXISTS `finder_tokens_aggregate` (
   `context` tinyint(1) unsigned NOT NULL default '2',
   `context_weight` float unsigned NOT NULL,
   `total_weight` float unsigned NOT NULL,
+  `language` char(3) NOT NULL DEFAULT '',
   KEY `token` (`term`),
   KEY `keyword_id` (`term_id`)
 ) DEFAULT CHARSET=utf8;
