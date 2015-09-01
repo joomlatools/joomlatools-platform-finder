@@ -5,6 +5,8 @@
 Joomla Finder, or smart search, is an advanced search extension for the [Joomlatools Platform] supporting keyword 
 stemming and facetted search. 
 
+> Forked from [Joomla CMS v3.3.6](https://github.com/joomla/joomla-cms/releases/tag/3.3.6)
+
 ## Requirements
 
 - PHP 5.5 or newer
