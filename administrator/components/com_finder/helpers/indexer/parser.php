@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_finder
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -12,9 +12,7 @@ defined('_JEXEC') or die;
 /**
  * Parser base class for the Finder indexer package.
  *
- * @package     Joomla.Administrator
- * @subpackage  com_finder
- * @since       2.5
+ * @since  2.5
  */
 abstract class FinderIndexerParser
 {
@@ -50,17 +48,15 @@ abstract class FinderIndexerParser
 		$class = 'FinderIndexerParser' . ucfirst($format);
 
 		// Check if a parser exists for the format.
-		if (file_exists($path))
-		{
-			// Instantiate the parser.
-			include_once $path;
-			$instances[$format] = new $class;
-		}
-		else
+		if (!file_exists($path))
 		{
 			// Throw invalid format exception.
 			throw new Exception(JText::sprintf('COM_FINDER_INDEXER_INVALID_PARSER', $format));
 		}
+
+		// Instantiate the parser.
+		include_once $path;
+		$instances[$format] = new $class;
 
 		return $instances[$format];
 	}
