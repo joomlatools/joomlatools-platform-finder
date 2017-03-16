@@ -7,4 +7,8 @@
  * @link		https://github.com/joomlatools/joomlatools-platform for the canonical source repository
  */
 
+if (!defined('JOOMLATOOLS_PLATFORM')) {
+	return;
+}
+
 JHtml::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_finder/helpers/html');
