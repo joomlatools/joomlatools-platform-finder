@@ -3,8 +3,8 @@
  * @package     Joomla.Site
  * @subpackage  com_finder
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
+ * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -12,9 +12,7 @@ defined('_JEXEC') or die;
 /**
  * Search HTML view class for the Finder package.
  *
- * @package     Joomla.Site
- * @subpackage  com_finder
- * @since       2.5
+ * @since  2.5
  */
 class FinderViewSearch extends JViewLegacy
 {
@@ -124,7 +122,7 @@ class FinderViewSearch extends JViewLegacy
 		$fields = null;
 
 		// Get the URI.
-		$uri = JUri::getInstance(JRoute::_($this->query->toURI()));
+		$uri = JUri::getInstance(JRoute::_($this->query->toUri()));
 		$uri->delVar('q');
 		$uri->delVar('o');
 		$uri->delVar('t');
@@ -241,12 +239,12 @@ class FinderViewSearch extends JViewLegacy
 		{
 			// Add the RSS link.
 			$props = array('type' => 'application/rss+xml', 'title' => 'RSS 2.0');
-			$route = JRoute::_($this->query->toURI() . '&format=feed&type=rss');
+			$route = JRoute::_($this->query->toUri() . '&format=feed&type=rss');
 			$this->document->addHeadLink($route, 'alternate', 'rel', $props);
 
 			// Add the ATOM link.
 			$props = array('type' => 'application/atom+xml', 'title' => 'Atom 1.0');
-			$route = JRoute::_($this->query->toURI() . '&format=feed&type=atom');
+			$route = JRoute::_($this->query->toUri() . '&format=feed&type=atom');
 			$this->document->addHeadLink($route, 'alternate', 'rel', $props);
 		}
 	}

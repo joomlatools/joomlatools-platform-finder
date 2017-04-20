@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_finder
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -28,9 +28,7 @@ jimport('joomla.filesystem.file');
  * Note: All exceptions thrown from within this class should be caught
  * by the controller.
  *
- * @package     Joomla.Administrator
- * @subpackage  com_finder
- * @since       2.5
+ * @since  2.5
  */
 abstract class FinderIndexer
 {
@@ -77,7 +75,7 @@ abstract class FinderIndexer
 	/**
 	 * The indexer state object.
 	 *
-	 * @var    object
+	 * @var    JObject
 	 * @since  2.5
 	 */
 	public static $state;
@@ -85,7 +83,7 @@ abstract class FinderIndexer
 	/**
 	 * The indexer profiler object.
 	 *
-	 * @var    object
+	 * @var    JProfiler
 	 * @since  2.5
 	 */
 	public static $profiler;
@@ -103,7 +101,7 @@ abstract class FinderIndexer
 		// Setup the adapter for the indexer.
 		$format = JFactory::getDbo()->name;
 
-		if ($format == 'mysqli')
+		if ($format == 'mysqli' || $format == 'pdomysql')
 		{
 			$format = 'mysql';
 		}
@@ -115,13 +113,12 @@ abstract class FinderIndexer
 		{
 			// Instantiate the parser.
 			include_once $path;
+
 			return new $class;
 		}
-		else
-		{
-			// Throw invalid format exception.
-			throw new RuntimeException(JText::sprintf('COM_FINDER_INDEXER_INVALID_DRIVER', $format));
-		}
+
+		// Throw invalid format exception.
+		throw new RuntimeException(JText::sprintf('COM_FINDER_INDEXER_INVALID_DRIVER', $format));
 	}
 
 	/**
@@ -134,9 +131,9 @@ abstract class FinderIndexer
 	public static function getState()
 	{
 		// First, try to load from the internal state.
-		if (!empty(self::$state))
+		if (!empty(static::$state))
 		{
-			return self::$state;
+			return static::$state;
 		}
 
 		// If we couldn't load from the internal state, try the session.
@@ -153,15 +150,15 @@ abstract class FinderIndexer
 
 			// Setup the weight lookup information.
 			$data->weights = array(
-				self::TITLE_CONTEXT	=> round($data->options->get('title_multiplier', 1.7), 2),
-				self::TEXT_CONTEXT	=> round($data->options->get('text_multiplier', 0.7), 2),
-				self::META_CONTEXT	=> round($data->options->get('meta_multiplier', 1.2), 2),
-				self::PATH_CONTEXT	=> round($data->options->get('path_multiplier', 2.0), 2),
-				self::MISC_CONTEXT	=> round($data->options->get('misc_multiplier', 0.3), 2)
+				self::TITLE_CONTEXT => round($data->options->get('title_multiplier', 1.7), 2),
+				self::TEXT_CONTEXT  => round($data->options->get('text_multiplier', 0.7), 2),
+				self::META_CONTEXT  => round($data->options->get('meta_multiplier', 1.2), 2),
+				self::PATH_CONTEXT  => round($data->options->get('path_multiplier', 2.0), 2),
+				self::MISC_CONTEXT  => round($data->options->get('misc_multiplier', 0.3), 2)
 			);
 
 			// Set the current time as the start time.
-			$data->startTime = JFactory::getDate()->toSQL();
+			$data->startTime = JFactory::getDate()->toSql();
 
 			// Set the remaining default values.
 			$data->batchSize   = (int) $data->options->get('batch_size', 50);
@@ -173,7 +170,7 @@ abstract class FinderIndexer
 		// Setup the profiler if debugging is enabled.
 		if (JFactory::getApplication()->get('debug'))
 		{
-			self::$profiler = JProfiler::getInstance('FinderIndexer');
+			static::$profiler = JProfiler::getInstance('FinderIndexer');
 		}
 
 		// Setup the stemmer.
@@ -183,9 +180,9 @@ abstract class FinderIndexer
 		}
 
 		// Set the state.
-		self::$state = $data;
+		static::$state = $data;
 
-		return self::$state;
+		return static::$state;
 	}
 
 	/**
@@ -206,11 +203,10 @@ abstract class FinderIndexer
 		}
 
 		// Set the new internal state.
-		self::$state = $data;
+		static::$state = $data;
 
 		// Set the new session state.
-		$session = JFactory::getSession();
-		$session->set('_finder.state', $data);
+		JFactory::getSession()->set('_finder.state', $data);
 
 		return true;
 	}
@@ -228,8 +224,7 @@ abstract class FinderIndexer
 		self::$state = null;
 
 		// Reset the session state to null.
-		$session = JFactory::getSession();
-		$session->set('_finder.state', null);
+		JFactory::getSession()->set('_finder.state', null);
 	}
 
 	/**
@@ -280,13 +275,14 @@ abstract class FinderIndexer
 	protected static function getSignature($item)
 	{
 		// Get the indexer state.
-		$state = self::getState();
+		$state = static::getState();
 
 		// Get the relevant configuration variables.
-		$config = array();
-		$config[] = $state->weights;
-		$config[] = $state->options->get('stem', 1);
-		$config[] = $state->options->get('stemmer', 'porter_en');
+		$config = array(
+			$state->weights,
+			$state->options->get('stem', 1),
+			$state->options->get('stemmer', 'porter_en')
+		);
 
 		return md5(serialize(array($item, $config)));
 	}
@@ -294,10 +290,8 @@ abstract class FinderIndexer
 	/**
 	 * Method to parse input, tokenize it, and then add it to the database.
 	 *
-	 * @param   mixed    $input    String or resource to use as input. A resource
-	 *                             input will automatically be chunked to conserve
-	 *                             memory. Strings will be chunked if longer than
-	 *                             2K in size.
+	 * @param   mixed    $input    String or resource to use as input. A resource input will automatically be chunked to conserve
+	 *                             memory. Strings will be chunked if longer than 2K in size.
 	 * @param   integer  $context  The context of the input. See context constants.
 	 * @param   string   $lang     The language of the input.
 	 * @param   string   $format   The format of the input.
@@ -306,7 +300,7 @@ abstract class FinderIndexer
 	 *
 	 * @since   2.5
 	 */
-	protected function tokenizeToDB($input, $context, $lang, $format)
+	protected function tokenizeToDb($input, $context, $lang, $format)
 	{
 		$count = 0;
 		$buffer = null;
@@ -366,10 +360,10 @@ abstract class FinderIndexer
 					$tokens = FinderIndexerHelper::tokenize($string, $lang);
 
 					// Add the tokens to the database.
-					$count += $this->addTokensToDB($tokens, $context);
+					$count += $this->addTokensToDb($tokens, $context);
 
 					// Check if we're approaching the memory limit of the token table.
-					if ($count > self::$state->options->get('memory_table_limit', 30000))
+					if ($count > static::$state->options->get('memory_table_limit', 30000))
 					{
 						$this->toggleTables(false);
 					}
@@ -421,10 +415,10 @@ abstract class FinderIndexer
 					$tokens = FinderIndexerHelper::tokenize($string, $lang);
 
 					// Add the tokens to the database.
-					$count += $this->addTokensToDB($tokens, $context);
+					$count += $this->addTokensToDb($tokens, $context);
 
 					// Check if we're approaching the memory limit of the token table.
-					if ($count > self::$state->options->get('memory_table_limit', 30000))
+					if ($count > static::$state->options->get('memory_table_limit', 30000))
 					{
 						$this->toggleTables(false);
 					}
@@ -445,7 +439,7 @@ abstract class FinderIndexer
 				$tokens = FinderIndexerHelper::tokenize($input, $lang);
 
 				// Add the tokens to the database.
-				$count = $this->addTokensToDB($tokens, $context);
+				$count = $this->addTokensToDb($tokens, $context);
 			}
 		}
 
@@ -463,7 +457,7 @@ abstract class FinderIndexer
 	 * @since   2.5
 	 * @throws  Exception on database error.
 	 */
-	abstract protected function addTokensToDB($tokens, $context = '');
+	abstract protected function addTokensToDb($tokens, $context = '');
 
 	/**
 	 * Method to switch the token tables from Memory tables to MyISAM tables
